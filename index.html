@@ -21,6 +21,7 @@
       --c-green: #10b981; --c-green-light: #ecfdf5; --c-green-border: #a7f3d0;
       --c-purple: #8b5cf6;--c-purple-light: #f5f3ff;--c-purple-border: #ddd6fe;
       --c-rose: #f43f5e;  --c-rose-light: #fff1f2;  --c-rose-border: #fecdd3;
+      --c-teal: #0d9488;  --c-teal-light: #f0fdfa;  --c-teal-border: #99f6e4;
     }
     [data-theme="dark"] {
       --bg: #0f1117; --surface: #1e2130; --border: #2a2f45;
@@ -32,6 +33,7 @@
       --c-green-light: #071f15; --c-green-border: #065f3a;
       --c-purple-light: #1a1240;--c-purple-border: #4c1d95;
       --c-rose-light: #2d0a12;  --c-rose-border: #9f1239;
+      --c-teal-light: #021f1c;  --c-teal-border: #0f5f58;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: background .25s, color .25s; }
@@ -134,6 +136,10 @@
     .cat-purple .step-num     { background: var(--c-purple-light); color: #5b21b6; border: 1px solid var(--c-purple-border); }
     .cat-purple .tip-tag      { background: var(--c-purple-light); color: #5b21b6; border-color: var(--c-purple-border); }
     .cat-purple .category-icon{ background: var(--c-purple-light); }
+    .cat-teal .tip-card-top   { background: var(--c-teal); }
+    .cat-teal .step-num       { background: var(--c-teal-light); color: #0f5f58; border: 1px solid var(--c-teal-border); }
+    .cat-teal .tip-tag        { background: var(--c-teal-light); color: #0f5f58; border-color: var(--c-teal-border); }
+    .cat-teal .category-icon  { background: var(--c-teal-light); }
 
     /* ── APPS ── */
     .apps-section { margin-bottom: 3rem; }
@@ -184,8 +190,8 @@
     <h1>Aprenda a <span>aprender melhor</span></h1>
     <p>Técnicas validadas pela ciência cognitiva para você estudar com mais eficiência, memorizar mais e gastar menos tempo.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="n">15</div><div class="l">técnicas</div></div>
-      <div class="hero-stat"><div class="n">4</div><div class="l">categorias</div></div>
+      <div class="hero-stat"><div class="n">17</div><div class="l">técnicas</div></div>
+      <div class="hero-stat"><div class="n">5</div><div class="l">categorias</div></div>
       <div class="hero-stat"><div class="n">5</div><div class="l">apps recomendados</div></div>
     </div>
   </div>
@@ -202,6 +208,7 @@
       <a class="summary-pill" href="#memoria">🧠 Memorização</a>
       <a class="summary-pill" href="#compreensao">💡 Compreensão</a>
       <a class="summary-pill" href="#habitos">🌱 Hábitos</a>
+      <a class="summary-pill" href="#colaborativo">🤝 Aprendizado Colaborativo</a>
       <a class="summary-pill" href="#apps">📱 Apps</a>
       <a class="summary-pill" href="https://cesarazevedo.github.io/recursos" target="_blank">📚 Recursos recomendados ↗</a>
     </div>
@@ -597,6 +604,60 @@
         </div>
         <div class="tip-card-footer">
           <span class="tip-tag">Exercício</span><span class="tip-tag">Neurociência</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ APRENDIZADO COLABORATIVO ═══ -->
+  <section class="category-section cat-teal" id="colaborativo">
+    <div class="category-header">
+      <div class="category-icon">🤝</div>
+      <div><h2>Aprendizado Colaborativo</h2><p>Estudar com outra pessoa acelera o aprendizado</p></div>
+      <span class="category-count">2 técnicas</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">💬</div>
+            <div><div class="tip-name">Instrução entre Pares</div><div class="tip-also">Peer Instruction — Eric Mazur, Harvard</div></div>
+          </div>
+          <div class="tip-desc">Um dos métodos mais estudados em educação. Cada pessoa responde uma questão individualmente, depois discute com o parceiro — o debate força a articular o raciocínio e revela lacunas que estudar sozinho não revela. Pesquisas mostram ganhos de desempenho significativos em relação ao estudo solo.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Escolham um conteúdo e criem 3–5 perguntas desafiadoras sobre ele.</li>
+            <li><span class="step-num">2</span> Cada um responde sozinho, sem ajuda, e anota o raciocínio.</li>
+            <li><span class="step-num">3</span> Comparem respostas e debatam as divergências até chegar a um consenso.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Duplas</span><span class="tip-tag">Debate</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🔄</div>
+            <div><div class="tip-name">Ensino Recíproco</div><div class="tip-also">Reciprocal Teaching — Palincsar & Brown</div></div>
+          </div>
+          <div class="tip-desc">Cada pessoa estuda metade do conteúdo e ensina a outra. Quem ensina fixa melhor (Efeito Protégé: a expectativa de ensinar já melhora o estudo). Quem aprende recebe uma explicação com palavras reais, não de livro.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Dividam o conteúdo: cada um fica responsável por uma parte.</li>
+            <li><span class="step-num">2</span> Estudem separadamente com profundidade — vocês vão ensinar.</li>
+            <li><span class="step-num">3</span> Reúnam-se: cada um ensina sua parte, o outro faz perguntas.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Duplas</span><span class="tip-tag">Ensinar</span>
           <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
         </div>
       </div>
