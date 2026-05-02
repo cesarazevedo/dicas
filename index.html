@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dicas de Estudo — César Azevedo</title>
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --text: #111827;
+      --text-sub: #4b5563;
+      --text-muted: #9ca3af;
+      --header-bg: #ffffff;
+      --tag-bg: #f3f4f6;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+
+      --c-amber: #f59e0b;
+      --c-amber-light: #fffbeb;
+      --c-amber-border: #fde68a;
+      --c-blue: #3b82f6;
+      --c-blue-light: #eff6ff;
+      --c-blue-border: #bfdbfe;
+      --c-green: #10b981;
+      --c-green-light: #ecfdf5;
+      --c-green-border: #a7f3d0;
+      --c-purple: #8b5cf6;
+      --c-purple-light: #f5f3ff;
+      --c-purple-border: #ddd6fe;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f1117;
+      --surface: #1e2130;
+      --border: #2a2f45;
+      --text: #f1f5f9;
+      --text-sub: #94a3b8;
+      --text-muted: #64748b;
+      --header-bg: #161b2e;
+      --tag-bg: #2a2f45;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.3);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.35);
+
+      --c-amber-light: #292010;
+      --c-amber-border: #78450a;
+      --c-blue-light: #0f1e3a;
+      --c-blue-border: #1e3a6e;
+      --c-green-light: #071f15;
+      --c-green-border: #065f3a;
+      --c-purple-light: #1a1240;
+      --c-purple-border: #4c1d95;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background .25s, color .25s;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: color .15s, border-color .15s;
+    }
+    .back-link:hover { color: var(--text); border-color: var(--text-muted); }
+    .header-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .header-title .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--c-amber);
+    }
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.3rem 0.55rem;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text-muted);
+      transition: border-color .15s, color .15s;
+      line-height: 1;
+    }
+    .theme-btn:hover { border-color: var(--text-muted); color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1d4ed8 100%);
+      color: #fff;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(245,158,11,.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139,92,246,.2) 0%, transparent 40%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(4px);
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.85rem;
+      letter-spacing: -.02em;
+    }
+    .hero h1 span { color: #fcd34d; }
+    .hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .n {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fcd34d;
+      line-height: 1;
+    }
+    .hero-stat .l {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,.6);
+      margin-top: 2px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* ── CATEGORY SECTION ── */
+    .category-section { margin-bottom: 3rem; }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .category-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .category-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .category-header p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+    .category-count {
+      margin-left: auto;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    /* ── TECHNIQUE CARD ── */
+    .tip-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform .18s, box-shadow .18s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .tip-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .tip-card-top {
+      height: 5px;
+      flex-shrink: 0;
+    }
+    .tip-card-body {
+      padding: 1.1rem 1.2rem 0.9rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .tip-card-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+    .tip-emoji {
+      font-size: 1.6rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tip-name {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .tip-also {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .tip-desc {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 0.85rem;
+      flex: 1;
+    }
+    .tip-steps-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+    .tip-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .tip-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.77rem;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+    .step-num {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      font-size: 0.62rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .tip-card-footer {
+      padding: 0.55rem 1.2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tip-tag {
+      font-size: 0.67rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+    .tip-impact {
+      margin-left: auto;
+      font-size: 0.67rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .stars { letter-spacing: -1px; }
+
+    /* Category color variants */
+    .cat-amber .tip-card-top    { background: var(--c-amber); }
+    .cat-amber .step-num        { background: var(--c-amber-light); color: #92400e; border: 1px solid var(--c-amber-border); }
+    .cat-amber .tip-tag         { background: var(--c-amber-light); color: #92400e; border-color: var(--c-amber-border); }
+
+    .cat-blue .tip-card-top     { background: var(--c-blue); }
+    .cat-blue .step-num         { background: var(--c-blue-light); color: #1e40af; border: 1px solid var(--c-blue-border); }
+    .cat-blue .tip-tag          { background: var(--c-blue-light); color: #1e40af; border-color: var(--c-blue-border); }
+
+    .cat-green .tip-card-top    { background: var(--c-green); }
+    .cat-green .step-num        { background: var(--c-green-light); color: #065f46; border: 1px solid var(--c-green-border); }
+    .cat-green .tip-tag         { background: var(--c-green-light); color: #065f46; border-color: var(--c-green-border); }
+
+    .cat-purple .tip-card-top   { background: var(--c-purple); }
+    .cat-purple .step-num       { background: var(--c-purple-light); color: #5b21b6; border: 1px solid var(--c-purple-border); }
+    .cat-purple .tip-tag        { background: var(--c-purple-light); color: #5b21b6; border-color: var(--c-purple-border); }
+
+    .cat-amber .category-icon   { background: var(--c-amber-light); }
+    .cat-blue .category-icon    { background: var(--c-blue-light); }
+    .cat-green .category-icon   { background: var(--c-green-light); }
+    .cat-purple .category-icon  { background: var(--c-purple-light); }
+
+    /* ── QUICK SUMMARY BAR ── */
+    .summary-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .summary-bar h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 0.85rem;
+    }
+    .summary-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .summary-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+      text-decoration: none;
+    }
+    .summary-pill:hover { border-color: var(--c-amber); color: var(--text); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .hero-stats { gap: 1.25rem; }
+      .main { padding: 2rem 1rem 3rem; }
+      .header-title { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a class="back-link" href="https://cesarazevedo.github.io">← Início</a>
+      <div class="header-title">
+        <div class="dot"></div>
+        Dicas de Estudo
+      </div>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Alternar tema">🌙</button>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">📖 Guia de aprendizado</div>
+    <h1>Aprenda a <span>aprender melhor</span></h1>
+    <p>Técnicas validadas pela ciência cognitiva para você estudar com mais eficiência, memorizar mais e gastar menos tempo.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n">12</div><div class="l">técnicas</div></div>
+      <div class="hero-stat"><div class="n">4</div><div class="l">categorias</div></div>
+      <div class="hero-stat"><div class="n">∞</div><div class="l">aplicações</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MAIN ══ -->
+<main class="main">
+
+  <!-- Quick nav -->
+  <div class="summary-bar">
+    <h3>Navegar por categoria</h3>
+    <div class="summary-pills">
+      <a class="summary-pill" href="#tempo">⏱️ Tempo e Foco</a>
+      <a class="summary-pill" href="#memoria">🧠 Memorização</a>
+      <a class="summary-pill" href="#compreensao">💡 Compreensão</a>
+      <a class="summary-pill" href="#habitos">🌱 Hábitos e Estilo de Vida</a>
+    </div>
+  </div>
+
+  <!-- ═══ CATEGORIA: TEMPO E FOCO ═══ -->
+  <section class="category-section cat-amber" id="tempo">
+    <div class="category-header">
+      <div class="category-icon">⏱️</div>
+      <div>
+        <h2>Tempo e Foco</h2>
+        <p>Gerencie seu tempo e proteja sua atenção</p>
+      </div>
+      <span class="category-count">3 técnicas</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🍅</div>
+            <div>
+              <div class="tip-name">Técnica Pomodoro</div>
+              <div class="tip-also">by Francesco Cirillo</div>
+            </div>
+          </div>
+          <div class="tip-desc">Trabalhe em blocos de 25 minutos de foco total, separados por pausas curtas. O relógio cria urgência e evita que você se perca em distrações.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Escolha UMA tarefa e defina o temporizador para 25 min.</li>
+            <li><span class="step-num">2</span> Trabalhe sem interrupções até o alarme tocar.</li>
+            <li><span class="step-num">3</span> Pause 5 min. A cada 4 pomodoros, pause 20–30 min.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Foco</span>
+          <span class="tip-tag">Produtividade</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">📵</div>
+            <div>
+              <div class="tip-name">Trabalho Profundo</div>
+              <div class="tip-also">Deep Work — Cal Newport</div>
+            </div>
+          </div>
+          <div class="tip-desc">Elimine todas as distrações e entre em estado de fluxo. Uma hora de foco real vale mais do que quatro horas interrompidas por celular.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Defina um horário fixo de estudo (ex: 19h–21h).</li>
+            <li><span class="step-num">2</span> Coloque o celular em outro cômodo ou no modo avião.</li>
+            <li><span class="step-num">3</span> Feche abas irrelevantes. Apenas o que você estuda.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Concentração</span>
+          <span class="tip-tag">Rotina</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">📅</div>
+            <div>
+              <div class="tip-name">Prática Distribuída</div>
+              <div class="tip-also">vs. maratona de última hora</div>
+            </div>
+          </div>
+          <div class="tip-desc">Estudar 30 minutos por dia durante uma semana é muito mais eficaz do que estudar 3,5 horas na véspera. O cérebro consolida memórias durante o sono entre as sessões.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Divida o conteúdo em partes pequenas.</li>
+            <li><span class="step-num">2</span> Estude uma parte diferente a cada dia.</li>
+            <li><span class="step-num">3</span> Revise o conteúdo anterior antes de avançar.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Planejamento</span>
+          <span class="tip-tag">Consistência</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CATEGORIA: MEMORIZAÇÃO ═══ -->
+  <section class="category-section cat-blue" id="memoria">
+    <div class="category-header">
+      <div class="category-icon">🧠</div>
+      <div>
+        <h2>Memorização</h2>
+        <p>Grave informações de forma duradoura</p>
+      </div>
+      <span class="category-count">4 técnicas</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">📈</div>
+            <div>
+              <div class="tip-name">Repetição Espaçada</div>
+              <div class="tip-also">Spaced Repetition — Hermann Ebbinghaus</div>
+            </div>
+          </div>
+          <div class="tip-desc">Revise o conteúdo em intervalos crescentes (1 dia, 3 dias, 1 semana, 1 mês...). Cada revisão empurra a "data de esquecimento" para mais longe.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Estude o conteúdo hoje.</li>
+            <li><span class="step-num">2</span> Revise amanhã, depois em 3 dias, depois em 1 semana.</li>
+            <li><span class="step-num">3</span> Use Anki ou flashcards físicos para automatizar.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Memória</span>
+          <span class="tip-tag">Longo prazo</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🃏</div>
+            <div>
+              <div class="tip-name">Recordação Ativa</div>
+              <div class="tip-also">Active Recall / Retrieval Practice</div>
+            </div>
+          </div>
+          <div class="tip-desc">Tentar lembrar a resposta é muito mais eficaz do que reler. O esforço de buscar a memória fortalece a conexão neural.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Feche o caderno e tente lembrar o que estudou.</li>
+            <li><span class="step-num">2</span> Use flashcards: pergunta na frente, resposta no verso.</li>
+            <li><span class="step-num">3</span> Faça perguntas para si mesmo antes de ver a resposta.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Memorização</span>
+          <span class="tip-tag">Flashcards</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🔀</div>
+            <div>
+              <div class="tip-name">Intercalação</div>
+              <div class="tip-also">Interleaving</div>
+            </div>
+          </div>
+          <div class="tip-desc">Em vez de estudar um só assunto por horas, misture tópicos diferentes na mesma sessão. Parece mais difícil, mas gera aprendizado mais robusto.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Divida sua sessão em blocos de 20 min por assunto.</li>
+            <li><span class="step-num">2</span> Alterne: Mat → Port → Hist → Mat → Port...</li>
+            <li><span class="step-num">3</span> Misture tipos de exercício (ex: problemas variados de matemática).</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Retenção</span>
+          <span class="tip-tag">Multi-assunto</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🗂️</div>
+            <div>
+              <div class="tip-name">Chunking</div>
+              <div class="tip-also">Agrupamento significativo</div>
+            </div>
+          </div>
+          <div class="tip-desc">Agrupe informações soltas em "pacotes" com significado. O número de telefone 11987654321 é difícil; (11) 98765-4321 é fácil — são os mesmos dígitos.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Identifique padrões e relações entre os conteúdos.</li>
+            <li><span class="step-num">2</span> Crie categorias ou grupos temáticos.</li>
+            <li><span class="step-num">3</span> Invente siglas ou histórias para unir os elementos.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Organização</span>
+          <span class="tip-tag">Memória</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CATEGORIA: COMPREENSÃO ═══ -->
+  <section class="category-section cat-green" id="compreensao">
+    <div class="category-header">
+      <div class="category-icon">💡</div>
+      <div>
+        <h2>Compreensão</h2>
+        <p>Entenda de verdade, não apenas decore</p>
+      </div>
+      <span class="category-count">3 técnicas</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🧑‍🏫</div>
+            <div>
+              <div class="tip-name">Método Feynman</div>
+              <div class="tip-also">by Richard Feynman</div>
+            </div>
+          </div>
+          <div class="tip-desc">Se você não consegue explicar um conceito de forma simples, é porque ainda não entendeu. Ensinar revela as lacunas do seu conhecimento.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Escreva o conceito como se fosse explicar para uma criança.</li>
+            <li><span class="step-num">2</span> Identifique onde você trava ou fica vago.</li>
+            <li><span class="step-num">3</span> Volte ao material, corrija, e simplifique mais.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Compreensão</span>
+          <span class="tip-tag">Ensinar</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">📝</div>
+            <div>
+              <div class="tip-name">Método Cornell</div>
+              <div class="tip-also">Cornell Notes System</div>
+            </div>
+          </div>
+          <div class="tip-desc">Sistema de anotações que divide a página em três áreas: notas principais, coluna de perguntas-chave e um resumo no rodapé. Facilita revisões.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Divida a página: 70% notas | 30% perguntas | rodapé resumo.</li>
+            <li><span class="step-num">2</span> Anote as ideias principais no corpo das notas.</li>
+            <li><span class="step-num">3</span> Cubra as notas e responda as perguntas de memória.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Anotações</span>
+          <span class="tip-tag">Revisão</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🗺️</div>
+            <div>
+              <div class="tip-name">Mapas Mentais</div>
+              <div class="tip-also">Mind Mapping — Tony Buzan</div>
+            </div>
+          </div>
+          <div class="tip-desc">Organize o conhecimento de forma visual e hierárquica, partindo de um conceito central. Ativa dois canais cognitivos ao mesmo tempo: texto e imagem.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Escreva o tema central no meio da folha.</li>
+            <li><span class="step-num">2</span> Crie ramos com subtemas e use cores diferentes.</li>
+            <li><span class="step-num">3</span> Adicione ícones e palavras-chave — evite frases longas.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Visual</span>
+          <span class="tip-tag">Organização</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CATEGORIA: HÁBITOS ═══ -->
+  <section class="category-section cat-purple" id="habitos">
+    <div class="category-header">
+      <div class="category-icon">🌱</div>
+      <div>
+        <h2>Hábitos e Estilo de Vida</h2>
+        <p>O cérebro precisa de condições para aprender</p>
+      </div>
+      <span class="category-count">2 técnicas</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">😴</div>
+            <div>
+              <div class="tip-name">Sono e Consolidação</div>
+              <div class="tip-also">Sleep-dependent memory consolidation</div>
+            </div>
+          </div>
+          <div class="tip-desc">Durante o sono, o cérebro "grava" o que foi estudado na memória de longo prazo. Dormir mal desfaz grande parte do que você aprendeu.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Durma 7–9 horas, especialmente após estudar algo novo.</li>
+            <li><span class="step-num">2</span> Evite telas 30 min antes de dormir.</li>
+            <li><span class="step-num">3</span> Uma breve revisão antes de dormir potencializa a retenção.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Sono</span>
+          <span class="tip-tag">Memória</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🏃</div>
+            <div>
+              <div class="tip-name">Exercício e BDNF</div>
+              <div class="tip-also">Brain-Derived Neurotrophic Factor</div>
+            </div>
+          </div>
+          <div class="tip-desc">Exercício aeróbico libera BDNF, uma proteína que estimula o crescimento de neurônios. 20 minutos de caminhada antes de estudar melhora foco e memória.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Caminhe, dance ou pedale 20–30 min antes de estudar.</li>
+            <li><span class="step-num">2</span> Exercícios regulares (3x/semana) têm efeito cumulativo.</li>
+            <li><span class="step-num">3</span> Combine com boa hidratação — o cérebro é 75% água.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Exercício</span>
+          <span class="tip-tag">Neurociência</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+  Prof. César Azevedo · IFRN Campus João Câmara
+</footer>
+
+<script>
+  const btn = document.getElementById('themeBtn');
+  const root = document.documentElement;
+
+  const saved = localStorage.getItem('dicas-theme') || 'light';
+  root.setAttribute('data-theme', saved);
+  btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('dicas-theme', next);
+  });
+</script>
+
+</body>
+</html>
