@@ -26,6 +26,7 @@
       --c-purple: #8b5cf6;--c-purple-light: #f5f3ff;--c-purple-border: #ddd6fe;
       --c-rose: #f43f5e;  --c-rose-light: #fff1f2;  --c-rose-border: #fecdd3;
       --c-teal: #0d9488;  --c-teal-light: #f0fdfa;  --c-teal-border: #99f6e4;
+      --c-indigo: #6366f1; --c-indigo-light: #eef2ff; --c-indigo-border: #c7d2fe;
     }
     [data-theme="dark"] {
       --bg: #0f1117; --surface: #1e2130; --border: #2a2f45;
@@ -38,6 +39,7 @@
       --c-purple-light: #1a1240;--c-purple-border: #4c1d95;
       --c-rose-light: #2d0a12;  --c-rose-border: #9f1239;
       --c-teal-light: #021f1c;  --c-teal-border: #0f5f58;
+      --c-indigo-light: #1e1b4b; --c-indigo-border: #3730a3;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: background .25s, color .25s; }
@@ -150,6 +152,10 @@
     .cat-rose .step-num      { background: var(--c-rose-light); color: #9f1239; border: 1px solid var(--c-rose-border); }
     .cat-rose .tip-tag       { background: var(--c-rose-light); color: #9f1239; border-color: var(--c-rose-border); }
     .cat-rose .category-icon { background: var(--c-rose-light); }
+    .cat-indigo .tip-card-top { background: var(--c-indigo); }
+    .cat-indigo .step-num     { background: var(--c-indigo-light); color: #3730a3; border: 1px solid var(--c-indigo-border); }
+    .cat-indigo .tip-tag      { background: var(--c-indigo-light); color: #3730a3; border-color: var(--c-indigo-border); }
+    .cat-indigo .category-icon{ background: var(--c-indigo-light); }
 
     /* ── APPS ── */
     .apps-section { margin-bottom: 3rem; }
@@ -200,8 +206,8 @@
     <h1>Aprenda a <span>aprender melhor</span></h1>
     <p>Técnicas validadas pela ciência cognitiva para você estudar com mais eficiência, memorizar mais e gastar menos tempo.</p>
     <div class="hero-stats">
-      <a class="hero-stat" href="#tempo"><div class="n">39</div><div class="l">técnicas</div></a>
-      <a class="hero-stat" href="#comecar"><div class="n">6</div><div class="l">categorias</div></a>
+      <a class="hero-stat" href="#tempo"><div class="n">45</div><div class="l">técnicas</div></a>
+      <a class="hero-stat" href="#comecar"><div class="n">7</div><div class="l">categorias</div></a>
       <a class="hero-stat" href="#apps"><div class="n">5</div><div class="l">apps recomendados</div></a>
     </div>
   </div>
@@ -219,6 +225,7 @@
       <a class="summary-pill" href="#compreensao">💡 Compreensão</a>
       <a class="summary-pill" href="#habitos">🌱 Hábitos</a>
       <a class="summary-pill" href="#colaborativo">🤝 Aprendizado Colaborativo</a>
+      <a class="summary-pill" href="#ciclo">🔄 Ciclo de Estudos</a>
       <a class="summary-pill" href="#ismar">📖 Ismar Souza</a>
       <a class="summary-pill" href="#apps">📱 Apps</a>
       <a class="summary-pill" href="https://cesarazevedo.github.io/recursos" target="_blank">📚 Recursos recomendados ↗</a>
@@ -1143,6 +1150,144 @@
         </div>
         <div class="tip-card-footer">
           <span class="tip-tag">Metacognição</span><span class="tip-tag">Estratégia</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CICLO DE ESTUDOS ═══ -->
+  <section class="category-section cat-indigo" id="ciclo">
+    <div class="category-header">
+      <div class="category-icon">🔄</div>
+      <div><h2>Ciclo de Estudos</h2><p>Planejamento flexível para múltiplas matérias — by Laura Amorim</p></div>
+      <span class="category-count">6 técnicas</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🔄</div>
+            <div><div class="tip-name">Ciclo de Estudos</div><div class="tip-also">Laura Amorim — Mapas da Lulu</div></div>
+          </div>
+          <div class="tip-desc">Em vez de amarrar matérias aos dias da semana, o ciclo organiza disciplinas por ordem estratégica. Um imprevisto não "quebra" o plano — você simplesmente retoma do ponto exato onde parou, sem culpa e sem reorganizar tudo.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Liste suas matérias em ordem estratégica (não por dia da semana).</li>
+            <li><span class="step-num">2</span> Estude na ordem do ciclo, independentemente de qual dia é hoje.</li>
+            <li><span class="step-num">3</span> Se perder um dia, retome do ponto exato onde parou — sem compensação.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Planejamento</span><span class="tip-tag">Flexibilidade</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">⚖️</div>
+            <div><div class="tip-name">Peso das Disciplinas</div><div class="tip-also">Frequência proporcional à relevância</div></div>
+          </div>
+          <div class="tip-desc">Dividir o tempo igualmente entre todas as matérias é um erro. Se Informática tem 36 questões e Legislação tem 3, dedicar o mesmo tempo para ambas desperdiça energia preciosa. Mais peso na prova = mais presença no ciclo.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Verifique no edital o número de questões de cada disciplina.</li>
+            <li><span class="step-num">2</span> Proporcione a frequência no ciclo ao peso de cada matéria.</li>
+            <li><span class="step-num">3</span> Disciplinas menores entram com menos sessões — garantem menos pontos.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Estratégia</span><span class="tip-tag">Concursos</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">📏</div>
+            <div><div class="tip-name">Tamanho e Pré-requisitos</div><div class="tip-also">Extensão do conteúdo e ordem lógica</div></div>
+          </div>
+          <div class="tip-desc">Matérias com conteúdo extenso precisam aparecer mais vezes para que você avance e finalize junto com as menores. Além disso, respeite a ordem de pré-requisitos — aprender Direito Tributário antes do Constitucional é construir no ar.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Identifique quais matérias têm conteúdo denso e aumente sua frequência.</li>
+            <li><span class="step-num">2</span> Mapeie pré-requisitos: o que precisa ser aprendido primeiro?</li>
+            <li><span class="step-num">3</span> Posicione as matérias fundamentais no início do ciclo.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Organização</span><span class="tip-tag">Sequência</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🔃</div>
+            <div><div class="tip-name">Alterne a Natureza das Matérias</div><div class="tip-also">Variação cognitiva</div></div>
+          </div>
+          <div class="tip-desc">Ir de Direito Constitucional direto para Direito Administrativo é cansativo — para o cérebro, parece o mesmo assunto. Mesclar matérias de naturezas diferentes (teórica, lógica, prática) renova o estímulo e aumenta o foco.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Após uma disciplina teórico-jurídica, vá para Lógica, Português ou Informática.</li>
+            <li><span class="step-num">2</span> Alterne também os métodos: PDF, videoaula, resolução de questões.</li>
+            <li><span class="step-num">3</span> No dia a dia, reordene as matérias para criar uma sequência mais fluida.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Foco</span><span class="tip-tag">Alternância</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">🔬</div>
+            <div><div class="tip-name">Avalie seus Conhecimentos Prévios</div><div class="tip-also">Diagnóstico de aprendizagem</div></div>
+          </div>
+          <div class="tip-desc">O que você já domina precisa de menos tempo; o que é novo ou difícil, de mais. Adapte a carga horária ao seu ponto de partida real — não existe fórmula pronta, existe planejamento inteligente e honesto.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Liste as matérias por nível de familiaridade: fácil / médio / difícil para você.</li>
+            <li><span class="step-num">2</span> Aumente a carga das difíceis e reduza a das que você já domina.</li>
+            <li><span class="step-num">3</span> Revise essa distribuição mensalmente conforme for avançando.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Metacognição</span><span class="tip-tag">Personalização</span>
+          <span class="tip-impact"><span class="stars">⭐⭐⭐⭐</span></span>
+        </div>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-card-top"></div>
+        <div class="tip-card-body">
+          <div class="tip-card-head">
+            <div class="tip-emoji">⏳</div>
+            <div><div class="tip-name">Dimensione as Sessões</div><div class="tip-also">Duração ideal por disciplina</div></div>
+          </div>
+          <div class="tip-desc">Sessões muito longas perdem o foco; muito curtas não engajam. O intervalo ideal é 45 min–1h15 por matéria. O ciclo não precisa coincidir exatamente com sua semana — pode ter mais ou menos horas que sua disponibilidade semanal.</div>
+          <div class="tip-steps-label">Como usar</div>
+          <ul class="tip-steps">
+            <li><span class="step-num">1</span> Defina sessões entre 45 min e 1h15 por disciplina.</li>
+            <li><span class="step-num">2</span> Some a carga total do ciclo e compare com suas horas semanais disponíveis.</li>
+            <li><span class="step-num">3</span> Ajuste o número de sessões se o ciclo estiver muito longo ou curto para a rotina.</li>
+          </ul>
+        </div>
+        <div class="tip-card-footer">
+          <span class="tip-tag">Tempo</span><span class="tip-tag">Rotina</span>
           <span class="tip-impact"><span class="stars">⭐⭐⭐⭐⭐</span></span>
         </div>
       </div>
